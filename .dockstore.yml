@@ -4,6 +4,8 @@ workflows:
     publish: True
     primaryDescriptorPath: /pipeline/annotate_variants.wdl
     subclass: WDL
+    testParameterFiles:
+      - /test.json
     filters: # All tags, no branches
       branches:
         - main

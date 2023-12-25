@@ -1,0 +1,4 @@
+{
+    "annotateVariants.input_vcf": "test.vcf",
+    "annotateVariants.sample_id": "test"
+}
