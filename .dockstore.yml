@@ -7,6 +7,7 @@ workflows:
     filters: # All tags, no branches
       branches:
         - main
+
   - name: hgvs
     publish: True
     primaryDescriptorPath: /pipeline/hgvs/hgvs.wdl
