@@ -11,7 +11,7 @@ workflows:
         - main
   - name: hgvs
     publish: True
-    primaryDescriptorPath: hgvs.wdl
+    primaryDescriptorPath: hgvs/hgvs.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
