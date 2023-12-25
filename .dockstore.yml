@@ -2,50 +2,50 @@ version: 1.2
 workflows:
   - name: annotate_variants
     publish: True
-    primaryDescriptorPath: .\annotate_variants.wdl
+    primaryDescriptorPath: annotate_variants.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
     filters: # All tags, no branches
       branches:
-        - master
+        - main
   - name: hgvs
     publish: True
-    primaryDescriptorPath: .\hgvs.wdl
+    primaryDescriptorPath: hgvs.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
     filters: # All tags, no branches
       branches:
-        - master
+        - main
 
   - name: mask_variants
     publish: True
-    primaryDescriptorPath: .\mask_variants.wdl
+    primaryDescriptorPath: mask_variants.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
     filters: # All tags, no branches
       branches:
-        - master
+        - main
 
   - name: opencravat_dm
     publish: True
-    primaryDescriptorPath: .\opencravat_dm.wdl
+    primaryDescriptorPath: opencravat_dm.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
     filters: # All tags, no branches
       branches:
-        - master
+        - main
 
   - name: remove_filtered
     publish: True
-  primaryDescriptorPath: .\remove_filtered.wdl
+  primaryDescriptorPath: remove_filtered.wdl
     subclass: WDL
     testParameterFiles:
       - /test.json
     filters: # All tags, no branches
       branches:
-        - master
+        - main
 
