@@ -3,7 +3,7 @@ version 1.0
 # add SnpEff, VEP and open cravat annotation
 
 import "remove_filtered.wdl" as removeFiltered
-import "hgvs.wdl" as hgvs
+import "hgvs/hgvs.wdl" as hgvs
 import "opencravat_dm.wdl" as openCravat
 import "mask_variants.wdl" as mask_variants
 
