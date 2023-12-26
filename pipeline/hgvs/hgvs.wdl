@@ -5,22 +5,22 @@ workflow HgvsWorkflow {
     input {
         File input_vcf
         String sample_id
-        File pLi = "gs://cds-vep-data/pLI_values.txt"
-        File LoF = "gs://cds-vep-data/LoFtool_scores.txt"
+        File pLi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/pLI_values.txt"
+        File LoF = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/LoFtool_scores.txt"
 
-        File clinvar_data = "gs://snpsift_data/clinvar-latest.vcf.gz"
-        File clinvar_data_tbi = "gs://snpsift_data/clinvar-latest.vcf.gz.tbi"
-        File dbsnp_data = "gs://snpsift_data/00-All.vcf.gz"
-        File dbsnp_data_tbi = "gs://snpsift_data/00-All.vcf.gz.tbi"
+        File clinvar_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar-20231217.vcf.gz"
+        File clinvar_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar-20231217.vcf.gz.tbi"
+        File dbsnp_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz"
+        File dbsnp_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz.tbi"
 
-        File snpeff = "gs://snpsift_data/snpEff.jar"
-        File snpeff_config = "gs://snpsift_data/snpEff.config"
-        File snpsift = "gs://snpsift_data/SnpSift.jar"
+        File snpeff = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/snpEff.jar"
+        File snpeff_config = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/snpEff.config"
+        File snpsift = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/SnpSift.jar"
 
-        File vep_data = "gs://cds-vep-data/homo_sapiens_vep_110_GRCh38.tar.gz"
-        File fasta = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz"
-        File fai = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz.fai"
-        File gzi = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz.gzi"
+        File vep_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/homo_sapiens_vep_110_GRCh38.tar.gz"
+        File fasta = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz"
+        File fai = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.fai"
+        File gzi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.gzi"
         Int boot_disk_size=60
         Int disk_space=60
         Int cpu = 10
