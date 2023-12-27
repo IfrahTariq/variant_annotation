@@ -8,8 +8,8 @@ workflow HgvsWorkflow {
         File pLi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/pLI_values.txt"
         File LoF = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/LoFtool_scores.txt"
 
-        File clinvar_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar-20231217.vcf.gz"
-        File clinvar_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar-20231217.vcf.gz.tbi"
+        File clinvar_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar_20231217.vcf.gz"
+        File clinvar_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/clinvar_20231217.vcf.gz.tbi"
         File dbsnp_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz"
         File dbsnp_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz.tbi"
 
