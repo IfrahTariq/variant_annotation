@@ -13,9 +13,9 @@ workflow HgvsWorkflow {
         File dbsnp_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz"
         File dbsnp_data_tbi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/00-All.vcf.gz.tbi"
 
-        File snpeff = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/snpEff.jar"
-        File snpeff_config = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/snpEff.config"
-        File snpsift = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff/SnpSift.jar"
+        File snpeff = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff.jar"
+        File snpeff_config = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/snpEff.config"
+        File snpsift = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/SnpSift.jar"
 
         File vep_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/homo_sapiens_vep_110_GRCh38.tar.gz"
         File fasta = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz"
