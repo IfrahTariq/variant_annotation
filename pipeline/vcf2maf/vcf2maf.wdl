@@ -5,10 +5,10 @@ workflow run_vcf2maf {
     input {
         File input_vcf
         String sample_id
-        File vep_data = "gs://cds-vep-data/homo_sapiens_vep_109_GRCh38.tar.gz"
-        File fasta = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz"
-        File fai = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz.fai"
-        File gzi = "gs://cds-vep-data/Homo_sapiens_assembly38.fasta.gz.gzi"
+        File vep_data = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/homo_sapiens_vep_110_GRCh38.tar.gz"
+         File fasta = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz"
+        File fai = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.fai"
+        File gzi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.gzi"
     }
 
     call vcf2maf {
@@ -36,7 +36,7 @@ task vcf2maf {
         File vep_data
         String sample_id
 
-        String docker_image="us.gcr.io/cds-docker-containers/vcf2maf:test"
+        String docker_image="itariq/variant_annotation:sha256:061302d61c8ec1d316befb979774778fa44db6a3e7446fb98b7759196ef1468d"
         String assembly="GRCh38"
         Int preemptible=2
         Int boot_disk_size=60

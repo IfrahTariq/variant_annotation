@@ -112,7 +112,7 @@ task annotate_hgvs_task {
             --force_overwrite --offline --fasta /tmp/Homo_sapiens_assembly38.fasta.gz --fork ~{cpu} --vcf \
             --pick 
 
-        perl /vcf2maf/vcf2maf.pl \
+        perl ../../vcf2maf/vcf2maf.pl \
             --input-vcf ~{sample_id}.norm.snpeff.clinvar.vep.vcf \
             --output-maf ~{sample_id}.maf \
             --ref /tmp/Homo_sapiens_assembly38.fasta.gz \
