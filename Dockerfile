@@ -63,6 +63,9 @@ RUN /bin/bash -c "curl -L https://github.com/conda-forge/miniforge/releases/late
 RUN /bin/bash -c "mamba create -qy -c conda-forge -c bioconda -c defaults -n vep ensembl-vep==110.1 git gh htslib samtools bcftools ucsc-liftover"
 RUN echo "source activate vep" > ~/.bashrc
 ENV PATH /opt/conda/envs/vep/bin:${PATH}
-COPY *.py /opt/
+COPY --from=builder /install_root /
+COPY --from=builder /usr/local /usr/local
 COPY data /opt/data
+COPY *.py /opt/
+WORKDIR /opt
 
