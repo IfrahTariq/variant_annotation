@@ -6,7 +6,7 @@ workflow run_vcf_to_depmap {
         String sample_id
         File input_vcf
         String version=""
-        String docker_image="us-docker.pkg.dev/depmap-omics/public/vcf_to_depmap:test"
+        String docker_image="itariq/variant_annotation:sha256:061302d61c8ec1d316befb979774778fa44db6a3e7446fb98b7759196ef1468d"
     }
 
     call vcf_to_depmap {
@@ -48,7 +48,7 @@ task vcf_to_depmap {
     }
 
     command {
-        python -u vcf_to_depmap.py \
+        python -u ../../vcf_to_depmap.py \
               ~{input_vcf} \
               ~{sample_id} \
               --n_rows ~{n_rows} \
