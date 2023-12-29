@@ -56,7 +56,7 @@ workflows:
 
   - name: vcf_to_depmap
     publish: True
-    primaryDescriptorPath: /pipeline/vcf_to_depmap/vcf2maf.wdl
+    primaryDescriptorPath: /pipeline/vcf_to_depmap/vcf_to_depmap.wdl
     subclass: WDL
     filters: # All tags, no branches
       branches:
