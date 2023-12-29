@@ -43,4 +43,22 @@ workflows:
     filters: # All tags, no branches
       branches:
         - main
+  
+  - name: vcf2maf
+    publish: True
+    primaryDescriptorPath: /pipeline/vcf2maf/vcf2maf.wdl
+    subclass: WDL
+    testParameterFiles:
+      - /pipeline/vcf2maf/test.json
+    filters: # All tags, no branches
+      branches:
+        - main
+
+  - name: vcf_to_depmap
+    publish: True
+    primaryDescriptorPath: /pipeline/vcf_to_depmap/vcf2maf.wdl
+    subclass: WDL
+    filters: # All tags, no branches
+      branches:
+        - main
 
