@@ -47,8 +47,10 @@ task vcf_to_depmap {
         Int mem = 32
     }
 
+    ls 
+    
     command {
-        python -u ../../vcf_to_depmap.py \
+        python -u  vcf_to_depmap.py \
               ~{input_vcf} \
               ~{sample_id} \
               --n_rows ~{n_rows} \
