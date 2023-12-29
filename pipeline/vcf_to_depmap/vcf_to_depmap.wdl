@@ -49,7 +49,7 @@ task vcf_to_depmap {
 
     command {
         ls /tmp
-        python -u  /tmp/vcf_to_depmap.py \
+        python -u  /tmp/vcf2maf/vcf_to_depmap.py \
               ~{input_vcf} \
               ~{sample_id} \
               --n_rows ~{n_rows} \
