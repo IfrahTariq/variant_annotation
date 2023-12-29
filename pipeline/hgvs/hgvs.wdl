@@ -106,7 +106,7 @@ task annotate_hgvs_task {
        
         cp ~{pLi} ~{LoF} /tmp
 
-        perl -e '(print -e "/tmp/homo_sapiens") && print "\n".$^V."\n"' && perl vep -id rs699 --cache --dir
+        print "\n".$^V."\n"' && vep -id rs699 --cache --dir
 
         vep --species homo_sapiens --cache --assembly ~{assembly} --no_progress --no_stats --everything --dir /tmp --input_file ~{sample_id}.norm.snpeff.clinvar.vcf \
             --output_file ~{sample_id}.norm.snpeff.clinvar.vep.vcf \
