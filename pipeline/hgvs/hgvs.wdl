@@ -21,10 +21,10 @@ workflow HgvsWorkflow {
         File fasta = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz"
         File fai = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.fai"
         File gzi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.gzi"
-        Int boot_disk_size=300
-        Int disk_space=300
-        Int cpu = 50
-        Int mem = 400
+        Int boot_disk_size=120
+        Int disk_space=120
+        Int cpu = 20
+        Int mem = 160
     }
 
     call annotate_hgvs_task {
@@ -76,11 +76,11 @@ task annotate_hgvs_task {
         String sample_id
         String docker_image="itariq/variant_annotation:sha256:061302d61c8ec1d316befb979774778fa44db6a3e7446fb98b7759196ef1468d"
         String assembly="GRCh38"
-        Int preemptible=2
-        Int boot_disk_size=300
-        Int disk_space=300
-        Int cpu = 50
-        Int mem = 400
+        Int preemptible=4
+        Int boot_disk_size=120
+        Int disk_space=120
+        Int cpu = 20
+        Int mem = 160
     }
 
     command {
@@ -105,8 +105,6 @@ task annotate_hgvs_task {
         du -sh /tmp/Homo_sapiens_assembly38.fasta.gz*
        
         cp ~{pLi} ~{LoF} /tmp
-
-        print "\n".$^V."\n"' && vep -id rs699 --cache --dir
 
         vep --species homo_sapiens --cache --assembly ~{assembly} --no_progress --no_stats --everything --dir /tmp --input_file ~{sample_id}.norm.snpeff.clinvar.vcf \
             --output_file ~{sample_id}.norm.snpeff.clinvar.vep.vcf \
