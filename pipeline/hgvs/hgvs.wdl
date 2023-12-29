@@ -21,10 +21,10 @@ workflow HgvsWorkflow {
         File fasta = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz"
         File fai = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.fai"
         File gzi = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/Homo_sapiens_assembly38.fasta.gz.gzi"
-        Int boot_disk_size=60
-        Int disk_space=60
-        Int cpu = 10
-        Int mem = 80
+        Int boot_disk_size=1000
+        Int disk_space=500
+        Int cpu = 60
+        Int mem = 1000
     }
 
     call annotate_hgvs_task {
@@ -77,10 +77,10 @@ task annotate_hgvs_task {
         String docker_image="itariq/variant_annotation:sha256:061302d61c8ec1d316befb979774778fa44db6a3e7446fb98b7759196ef1468d"
         String assembly="GRCh38"
         Int preemptible=2
-        Int boot_disk_size=60
-        Int disk_space=60
-        Int cpu = 10
-        Int mem = 80
+        Int boot_disk_size=1000
+        Int disk_space=500
+        Int cpu = 60
+        Int mem = 1000
     }
 
     command {
@@ -98,7 +98,7 @@ task annotate_hgvs_task {
         tar -C /tmp -xvzf ~{vep_data} 
         ls /tmp
         chmod 777 /tmp/homo_sapiens
-        ls /tmp/homo_sapiens
+        #ls /tmp/homo_sapiens
         cp ~{fai} /tmp
         cp ~{fasta} /tmp
         cp ~{gzi} /tmp
