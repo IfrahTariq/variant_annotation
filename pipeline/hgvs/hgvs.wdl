@@ -74,7 +74,7 @@ task annotate_hgvs_task {
         File clinvar_data
         File clinvar_data_tbi
         String sample_id
-        String docker_image="itariq/variant_annotation:sha256:fcc9f03f62c47a46f1cba326cb3f8cd8f18ba0edeb915a9d555ab227fb2409a8"
+        String docker_image="itariq/variant_annotation:sha256:e8e28a3e8ec4ec0eeabb4494be8244328e437da3c17f5f2537db7ca34cff33b3"
         String assembly="GRCh38"
         Int preemptible=4
         Int boot_disk_size=120

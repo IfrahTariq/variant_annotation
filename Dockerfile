@@ -67,4 +67,4 @@ RUN git clone https://github.com/qinqian/vcf2maf # buildkit
 RUN git clone https://github.com/IfrahTariq/process_maf.git
 WORKDIR /process_maf/
 RUN git pull origin main
-RUN pip3 install pyarrow pandas argparse seaborn
+RUN pip3 install pyarrow pandas argparse seaborn numpy
