@@ -55,7 +55,6 @@ task vcf_to_depmap {
               --use_multi ~{use_multi} \
               --force_keep '~{sep="," force_keep}' \
               --whitelist ~{whitelist} \
-              --version ~{version} \
     }
 
     runtime {
