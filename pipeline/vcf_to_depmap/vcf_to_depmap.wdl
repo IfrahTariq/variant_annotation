@@ -48,7 +48,7 @@ task vcf_to_depmap {
     }
 
     command {
-        python -u  /vcf_to_depmap/vcf_to_depmap.py \
+        python -u  /process_maf/vcf_to_depmap.py \
               ~{input_vcf} \
               ~{sample_id} \
               --n_rows ~{n_rows} \
