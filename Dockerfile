@@ -64,4 +64,9 @@ RUN /bin/bash -c "mamba create -qy -c conda-forge -c bioconda -c defaults -n vep
 RUN echo "source activate vep" > ~/.bashrc
 ENV PATH /opt/conda/envs/vep/bin:${PATH}
 RUN git clone https://github.com/IfrahTariq/process_maf.git
+RUN pip3 install pyarrow pandas argparse 
+RUN mkdir -p vcf_to_depmap/
+COPY process_maf/*.py vcf_to_depmap/
+COPY process_maf/data vcf_to_depmap/data
+
 
