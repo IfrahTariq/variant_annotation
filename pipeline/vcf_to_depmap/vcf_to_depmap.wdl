@@ -23,7 +23,7 @@ workflow run_vcf_to_depmap {
     }
 }
 
-# transforms a vcf file (if possible annotated with opencravat) into :
+# transforms a vcf file (if possible annotated with opencravat) into:
 # 1. a set of parquet files (representing one full file)
 #     with a much cleaner structure / annotation / logic than the original vcf file
 #     with additional columns from parsing the existing ones (see improve method)
