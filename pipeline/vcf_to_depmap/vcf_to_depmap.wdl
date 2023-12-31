@@ -6,7 +6,7 @@ workflow run_vcf_to_depmap {
         String sample_id
         File input_vcf
         String version=""
-        String docker_image="itariq/variant_annotation:sha256:120fc8e4228c34f611888cc30ca8fa24311f2a056294794c3db87f5feb766299"
+        String docker_image="itariq/variant_annotation:sha256:0a39b301cccf7a8388e821c6721dbfac91732a8d5dc8b1fc8f70a3c254ae1325"
     }
 
     call vcf_to_depmap {
@@ -39,7 +39,7 @@ task vcf_to_depmap {
         Int n_rows=100000
         String version=""
 
-        String docker_image="itariq/variant_annotation:sha256:120fc8e4228c34f611888cc30ca8fa24311f2a056294794c3db87f5feb766299"
+        String docker_image="itariq/variant_annotation:sha256:0a39b301cccf7a8388e821c6721dbfac91732a8d5dc8b1fc8f70a3c254ae1325"
         Int preemptible=3
         Int boot_disk_size=10
         Int disk_space=40
