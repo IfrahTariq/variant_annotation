@@ -10,7 +10,7 @@ workflow run_vcf_to_csv {
         String docker_image="itariq/variant_annotation:sha256:ff883f38136a61ebd7e65e912601121599ff06fdc546204687cc391e083cb3d3"
     }
 
-    call vcf_to_depmap {
+    call vcf_to_csv {
         input:
             input_vcf=input_vep_vcf,
             input_funcotator_maf=input_funcotator_maf,
