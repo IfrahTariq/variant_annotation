@@ -65,5 +65,5 @@ RUN echo "source activate vep" > ~/.bashrc
 ENV PATH /opt/conda/envs/vep/bin:${PATH}
 RUN git clone https://github.com/qinqian/vcf2maf # buildkit
 RUN pip3 install pyarrow pandas argparse seaborn
-RUN mkdir -p process_maf
-COPY process_maf/ process_maf/
+RUN mkdir -p process_vep_func
+COPY process_vep_func/ process_vep_func/

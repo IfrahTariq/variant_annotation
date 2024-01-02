@@ -36,7 +36,7 @@ task vcf2maf {
         File vep_data
         String sample_id
 
-        String docker_image="itariq/variant_annotation:sha256:061302d61c8ec1d316befb979774778fa44db6a3e7446fb98b7759196ef1468d"
+        String docker_image="itariq/variant_annotation:sha256:ff883f38136a61ebd7e65e912601121599ff06fdc546204687cc391e083cb3d3"
         String assembly="GRCh38"
         Int preemptible=2
         Int boot_disk_size=60

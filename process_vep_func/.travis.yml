@@ -1,0 +1,15 @@
+language: python
+os: linux
+dist: bionic
+services: docker
+
+branches:
+  only:
+    - main
+
+install:
+  - docker build -t maf_process:main .
+  - docker image prune -f
+
+script:
+  - python vcf_to_csv.py

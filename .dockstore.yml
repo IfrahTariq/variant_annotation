@@ -54,9 +54,9 @@ workflows:
       branches:
         - main
 
-  - name: vcf_to_depmap
+  - name: vcf_to_csv
     publish: True
-    primaryDescriptorPath: /pipeline/vcf_to_depmap/vcf_to_depmap.wdl
+    primaryDescriptorPath: /pipeline/vcf_to_csv/vcf_to_csv.wdl
     subclass: WDL
     filters: # All tags, no branches
       branches:
