@@ -185,20 +185,22 @@ def cleanup_vcf(vcf):
     vcf = vcf.rename(columns=RENAME_OC)
     ## drop gnomad-genome columns
     vcf = vcf.drop(columns = vcf[[col for col in vcf.columns if 'gnomADg' in col]].columns.tolist())
-    ## cleanup PolyPhen and SIFT columns
-    vcf_phen = vcf[[col for col in vcf.columns if 'PolyPhen' in col]]
-    # Get the part before "(" if it exists
-    vcf["PolyPhen_anno"] = [x.split("(")[0] if "(" in x else x for x in vcf_phen.PolyPhen.tolist()]
-    # Get the part after "(" if it exists
-    numbers = [x.split("(")[1] if "(" in x else '' for x in vcf_phen.PolyPhen.tolist()]
-    vcf["PolyPhen_score"] = [x.replace(')', '') for x in numbers]
     
-    vcf_sift = vcf[[col for col in vcf.columns if 'SIFT' in col]]#.columns.tolist()
-    # Get the part before "(" if it exists
-    vcf["SIFT_anno"] = [x.split("(")[0] if "(" in x else x for x in vcf_sift.SIFT.tolist()]
-    # Get the part after "(" if it exists
-    numbers = [x.split("(")[1] if "(" in x else '' for x in vcf_sift.SIFT.tolist()]
-    vcf["SIFT_score"] = [x.replace(')', '') for x in numbers]
+    if "PolyPhen" in vcf.columns.tolist():
+        ## cleanup PolyPhen and SIFT columns
+        vcf_phen = vcf[[col for col in vcf.columns if 'PolyPhen' in col]]
+        # Get the part before "(" if it exists
+        vcf["PolyPhen_anno"] = [x.split("(")[0] if "(" in x else x for x in vcf_phen.PolyPhen.tolist()]
+        # Get the part after "(" if it exists
+        numbers = [x.split("(")[1] if "(" in x else '' for x in vcf_phen.PolyPhen.tolist()]
+        vcf["PolyPhen_score"] = [x.replace(')', '') for x in numbers]
+    if "SIFT" in vcf.columns.tolist():
+        vcf_sift = vcf[[col for col in vcf.columns if 'SIFT' in col]]#.columns.tolist()
+        # Get the part before "(" if it exists
+        vcf["SIFT_anno"] = [x.split("(")[0] if "(" in x else x for x in vcf_sift.SIFT.tolist()]
+        # Get the part after "(" if it exists
+        numbers = [x.split("(")[1] if "(" in x else '' for x in vcf_sift.SIFT.tolist()]
+        vcf["SIFT_score"] = [x.replace(')', '') for x in numbers]
     return vcf
 
 
