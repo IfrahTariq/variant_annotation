@@ -20,7 +20,7 @@ workflow run_vcf_to_csv {
     }
 
     output {
-        File csvfile=vcf_to_csv.maf_csv_file
+        File csvfile=vcf_to_csv.csvfile
     }
 }
 
