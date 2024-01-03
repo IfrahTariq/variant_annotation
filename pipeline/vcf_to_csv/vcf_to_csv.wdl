@@ -12,7 +12,7 @@ workflow run_vcf_to_csv {
 
     call vcf_to_csv {
         input:
-            input_vcf=input_vep_vcf,
+            input_vep_vcf=input_vep_vcf,
             input_funcotator_maf=input_funcotator_maf,
             sample_id=sample_id,
             version=version,
