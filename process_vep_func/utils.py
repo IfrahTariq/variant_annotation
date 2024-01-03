@@ -138,12 +138,17 @@ def funcotate_and_vep(funcotator_maf_file, vep_vcf_file):
 
     vcf_normal = vcf.iloc[:,-1].str.replace(",", "-").str.split(":")
     vcf_normal = pd.DataFrame(vcf_normal.tolist()).iloc[:,:8]
-    vcf_normal.columns = [f'NORMAL_{x}' for x in vcf.FORMAT[0].split(":")]
-
+    try:
+        vcf_normal.columns = [f'NORMAL_{x}' for x in vcf.FORMAT[0].split(":")]
+    except:
+        vcf_normal.columns = [f'NORMAL_fix{x}' for x in range(len(vcf_normal.columns.tolist()))]
     vcf_tumor = vcf.iloc[:,-2].str.replace(",", "-").str.split(":")
     vcf_tumor = pd.DataFrame(vcf_tumor.tolist()).iloc[:,:8]
-    vcf_tumor.columns = [f'TUMOR_{x}' for x in vcf.FORMAT[0].split(":")]
-
+    try:
+        vcf_tumor.columns = [f'TUMOR_{x}' for x in vcf.FORMAT[0].split(":")]
+    except:
+        vcf_tumor.columns = [f'TUMOR_fix{x}' for x in range(len(vcf_tumor.columns.tolist()))]
+        
     vcf_final = pd.concat([vcf_main, vcf_info, csq_df, ann_df, vcf_tumor, vcf_normal], axis=1)
     
     maf = maf.set_index('Start_Position')
@@ -164,15 +169,18 @@ def cleanup_vcf(vcf):
     print("replacing empty characters:")
     vcf = vcf.replace(replace_empty)
     ## determine which variants are associated with splicing
-    subvcf = vcf[(vcf["OC_spliceai__ds_ag"] != "")]
-    loc = subvcf[
-        (subvcf["OC_spliceai__ds_ag"].astype(float) >= 0.5)
-        | (subvcf["OC_spliceai__ds_al"].astype(float) >= 0.5)
-        | (subvcf["OC_spliceai__ds_dg"].astype(float) >= 0.5)
-        | (subvcf["OC_spliceai__ds_dl"].astype(float) >= 0.5)
-    ].index
-    vcf['assoc_splicing'] = 0
-    vcf.loc[loc, "assoc_splicing"] = 1
+    try:
+        subvcf = vcf[(vcf["OC_spliceai__ds_ag"] != "")]
+        loc = subvcf[
+            (subvcf["OC_spliceai__ds_ag"].astype(float) >= 0.5)
+            | (subvcf["OC_spliceai__ds_al"].astype(float) >= 0.5)
+            | (subvcf["OC_spliceai__ds_dg"].astype(float) >= 0.5)
+            | (subvcf["OC_spliceai__ds_dl"].astype(float) >= 0.5)
+        ].index
+        vcf['assoc_splicing'] = 0
+        vcf.loc[loc, "assoc_splicing"] = 1
+    except:
+        vcf['assoc_splicing'] = 'fix'
     ## remain OpenCravat columns
     vcf = vcf.rename(columns=RENAME_OC)
     ## drop gnomad-genome columns
