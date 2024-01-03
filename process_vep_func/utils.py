@@ -125,14 +125,19 @@ def funcotate_and_vep(funcotator_maf_file, vep_vcf_file):
 
     csq_df = vcf_info['CSQ'].str.split('|', expand=True)
     csq_cols = "Allele|Consequence|IMPACT|SYMBOL|Gene|Feature_type|Feature|BIOTYPE|EXON|INTRON|HGVSc|HGVSp|cDNA_position|CDS_position|Protein_position|Amino_acids|Codons|Existing_variation|DISTANCE|STRAND|FLAGS|VARIANT_CLASS|SYMBOL_SOURCE|HGNC_ID|CANONICAL|MANE_SELECT|MANE_PLUS_CLINICAL|TSL|APPRIS|CCDS|ENSP|SWISSPROT|TREMBL|UNIPARC|UNIPROT_ISOFORM|GENE_PHENO|SIFT|PolyPhen|DOMAINS|miRNA|HGVS_OFFSET|AF|AFR_AF|AMR_AF|EAS_AF|EUR_AF|SAS_AF|gnomADe_AF|gnomADe_AFR_AF|gnomADe_AMR_AF|gnomADe_ASJ_AF|gnomADe_EAS_AF|gnomADe_FIN_AF|gnomADe_NFE_AF|gnomADe_OTH_AF|gnomADe_SAS_AF|gnomADg_AF|gnomADg_AFR_AF|gnomADg_AMI_AF|gnomADg_AMR_AF|gnomADg_ASJ_AF|gnomADg_EAS_AF|gnomADg_FIN_AF|gnomADg_MID_AF|gnomADg_NFE_AF|gnomADg_OTH_AF|gnomADg_SAS_AF|MAX_AF|MAX_AF_POPS|CLIN_SIG|SOMATIC|PHENO|PUBMED|MOTIF_NAME|MOTIF_POS|HIGH_INF_POS|MOTIF_SCORE_CHANGE|TRANSCRIPTION_FACTORS|pLI_gene_value|LoFtool".split("|")
-    csq_df.columns = csq_cols
-    csq_df
+    try:
+        csq_df.columns = csq_cols
+    except:
+        csq_df.columns = [f'ANN_fix{x}' for x in range(len(csq_df.columns.tolist()))]
 
     ann_df = vcf_info['ANN'].str.split('|', expand=True)
     ann_cols = 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO'.split("|")
     # Drop columns where the majority of values are None
     ann_df = ann_df.dropna(thresh= len(ann_df) // 2, axis=1)
-    ann_df.columns = ann_cols
+    try:
+        ann_df.columns = ann_cols
+    except:
+        ann_df.columns = [f'ANN_fix{x}' for x in range(len(ann_df.columns.tolist()))]
 
     vcf_info = vcf_info.drop(['ANN', 'CSQ'], axis=1)
 
