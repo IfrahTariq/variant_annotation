@@ -7,7 +7,7 @@ workflow run_vcf_to_csv {
         File input_vep_vcf
         File input_funcotator_maf
         String version=""
-        String docker_image="itariq/variant_annotation:sha256:ff883f38136a61ebd7e65e912601121599ff06fdc546204687cc391e083cb3d3"
+        String docker_image="itariq/variant_annotation:sha256:975132c4fd7676e02a85c3c183249107ff142d0d88c161dfbc4cfbe15f5ce02e"
     }
 
     call vcf_to_csv {
@@ -33,7 +33,7 @@ task vcf_to_csv {
         String sample_id
         String version=""
 
-        String docker_image="itariq/variant_annotation:sha256:ff883f38136a61ebd7e65e912601121599ff06fdc546204687cc391e083cb3d3"
+        String docker_image="itariq/variant_annotation:sha256:975132c4fd7676e02a85c3c183249107ff142d0d88c161dfbc4cfbe15f5ce02e"
         Int preemptible=3
         Int boot_disk_size=10
         Int disk_space=40
