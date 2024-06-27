@@ -33,8 +33,8 @@ task opencravat {
         File vcf
         File oc_modules = "gs://ccleparams/oc_modules_trimmed.tar.gz"# a tar ball of the entie oc module folder (must start with the module folder in the path)
         String format = "vcf"
-        File cosmic_annotation = "gs://fc-f28a7948-a3c6-48bb-a978-56732d4aa44d/cmc_export_tier123.csv"
-        File oncokb_annotation = "gs://cds-oncokb-data/OncoKB_Annotated_Final_2023-07-25_05-44-42.csv"
+        File cosmic_annotation = "gs://cds-cosmic/cosmic_cmc_20230509_tier123.csv"
+        File oncokb_annotation = "gs://cds-oncokb-data/OncoKB_Annotated_Final_2024-03-19_08-12-54.csv"
         Array[String] annotators_to_use = ["brca1_func_assay", "provean", "revel", "spliceai", "gtex", "pharmgkb", "dida", "gwas_catalog", "ccre_screen", "alfa"]
         #Int stripfolder = 0 
         String genome = "hg38"
